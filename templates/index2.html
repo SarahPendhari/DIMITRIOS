@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detector</title>
+    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/hompage.css') }}">
+</head>
+
+<body>
+    <nav>
+        <input type="checkbox" id="check">
+        <label for="check" class="checkbtn">
+          <i class="fas fa-bars"></i>
+        </label> 
+        <label class="logo">DIMITRIOS</label>
+        <ul>
+          <li><a class="link" href="{{url_for('home')}}">Home</a></li>
+          <li><a class="link" href="{{url_for('faced')}}">Face Detection</a><li>
+          <li><a class="link" href="{{url_for('text')}}">Text Summarizer</a><li>
+          <li><a class="link" href="{{url_for('color')}}">Color Detector</a></li>
+          <li><a class="link" href="{{url_for('lang')}}">Language Detector</a></li>
+        </ul>
+      </nav>
+      <div class="line"></div>
+    
+    <div class="header1">
+        <div class="right-header1">
+            <div class="box21" id="output" >
+                {{sumupf}}
+            </div>
+        </div>
+    </div>
+    <form action="/text" method="POST" class="form">
+        <input type="file" id="url" name="url">
+        <input type="submit" id="submit" name="submit">
+    </form>
+    <script src="{{url_for('static', filename='index.js')}}"></script>
+</body>
+
+</html>

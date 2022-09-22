@@ -196,6 +196,7 @@ def processor(img):
 
     while(True):
         cv2.imshow("image", img)
+        cv2.imwrite('./static/styles/oldfile1.png',img)
         if clicked:
             cv2.rectangle(img,(20,20), (750,60), (b,g,r), -1)
             text = getColorName(r,g,b) + ' R='+ str(r) +  ' G='+ str(g) +  ' B='+ str(b)
@@ -253,8 +254,10 @@ def lang():
 def color():
     if request.method=="POST":
         global img
-        img = cv2.imread("static\styles\google1.jpg")
+        url=request.form.get("url")
+        img = cv2.imread("./static/styles/"+url)
         processor(img)
+        return render_template("index3.html",cdold="oldfile1.png")
     return render_template("index3.html")
 
 

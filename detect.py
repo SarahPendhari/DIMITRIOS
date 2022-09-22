@@ -1,4 +1,5 @@
 
+
 from flask import Flask, render_template, url_for, request
 import cv2
 import time
@@ -186,11 +187,3 @@ def color():
     return render_template("index3.html")
 
 
-
-    
-
-
-
-
-if __name__ == "__main__":
-    app.run(debug=True)
